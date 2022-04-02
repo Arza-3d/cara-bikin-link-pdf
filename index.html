@@ -64,6 +64,7 @@
             <pre id="link-baru">
                 &lt; a &gt;
             </pre>
+            <button onclick="copyNewLink()">Copy</button>
         </div>
 
         <script type="text/javascript">
@@ -77,6 +78,13 @@
                 return myText;
             }
 
+            function turnBackTag(myText) {
+                myText = myText.replace(/&gt;/gi, "<");
+                myText = myText.replace(/&lt;/gi, ">");
+
+                return myText;
+            }
+
             function buatLinkBaru() {
                 let textGambar,
                     linkPdf;
@@ -86,11 +94,16 @@
 
                 linkPdf = document.getElementById('linkPdf').value;
 
-                let newLink = "&lt;a href = " + linkPdf + " target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
+                let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
 
                 let newLinkHolder = document.getElementById("link-baru");
                 newLinkHolder.innerHTML = newLink;
+            }
 
+            function copyNewLink() {
+                let copyText = document.getElementById("link-baru");
+                let newLink = turnBackTag(copyText);
+                navigator.clipboard.writeText(newLink);
             }
 
             tombolLink.addEventListener("click", buatLinkBaru);
