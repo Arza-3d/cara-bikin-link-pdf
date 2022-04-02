@@ -8,7 +8,7 @@
                 border: black thin solid;
                 border-radius: 4px;
                 padding: 4px;
-                font: 12px;
+                font: 16px;
             }
 
             input {
@@ -37,27 +37,51 @@
             <legend>Input:</legend>
             <br>
             <br>
-            <input type="text" name="" placeholder="masukan text gambar di sini">
+            <input type="text" id="linkGambar" placeholder="masukan text gambar di sini, contoh: , ambil link DI POST ALL terus ke POST terus ke TEXT">
             <br>
             <br>
-            <input type="text" name="" placeholder="masukan Link PDF di sini">
+            <input type="text" id="linkPdf" placeholder="masukan Link PDF di sini, CONTOH: https://exsol-innovindo.com/wp-content/uploads/2022/04/Brosur-Flint-Exsol.pdf, ambil link yang telah di uplod DI MEDIA">
             <br>
             <br>
-            <button type="button">Buat link dalam gambar!</button>
+            <button type="button" id="tombolLinkBaru">Buat link dalam gambar!</button>
         </form>
         <hr>
         <div class="hasil">
             <h4>hasil:</h4>
             <br>
             <code id="link-baru">
-
+                &lt; a &gt;
             </code>
         </div>
 
         <script type="text/javascript">
 
-            let textGambar,
-                linkPdf;
+            let tombolLink = document.getElementById('tombolLinkBaru');
+
+            function changeTag(myText) {
+                myText = myText.replace(/</gi, "&gt;");
+                myText = myText.replace(/>/gi, "&lt;");
+
+                return myText;
+            }
+
+            function buatLinkBaru() {
+                let textGambar,
+                    linkPdf;
+
+                textGambar = document.getElementById('linkGambar').value;
+                textGambar = changeTag(textGambar);
+
+                linkPdf = document.getElementById('linkPdf').value;
+
+                let newLink = "&lt;a href = " + linkPdf + " target=\"_blank\"&gt;" + textGambar + "&lt;/a&gt;"
+
+                let newLinkHolder = document.getElementById("link-baru");
+                newLinkHolder.innerHTML = newLink;
+
+            }
+
+            tombolLink.addEventListener("click", buatLinkBaru);
 
         </script>
     </body>
