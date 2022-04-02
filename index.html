@@ -24,9 +24,22 @@
                 margin: 10px;
             }
 
+            pre {
+                background-color: #eee;
+                border: thin solid #ccc;
+                border-radius: 3px;
+                color: #060606;
+                font-family: "Roboto Mono",Consolas,monospace !important;
+                font-size: 12px;
+                line-height: normal;
+                max-height: 360px;
+                tab-size: 4;
+                width: auto;
+            }
+
             @media only screen and (max-width: 600px) {
                 body {
-                    background-color: lightblue;
+                    /*background-color: lightblue;*/
                 }
             }
         </style>
@@ -40,7 +53,7 @@
             <input type="text" id="linkGambar" placeholder="masukan text gambar di sini, contoh: , ambil link DI POST ALL terus ke POST terus ke TEXT">
             <br>
             <br>
-            <input type="text" id="linkPdf" placeholder="masukan Link PDF di sini, CONTOH: https://exsol-innovindo.com/wp-content/uploads/2022/04/Brosur-Flint-Exsol.pdf, ambil link yang telah di uplod DI MEDIA">
+            <input type="text" id="linkPdf" placeholder="masukan Link PDF di sini, ambil link yang telah di uplod DI MEDIA, CONTOH: https://exsol-innovindo.com/wp-content/uploads/2022/04/Brosur-Flint-Exsol.pdf">
             <br>
             <br>
             <button type="button" id="tombolLinkBaru">Buat link dalam gambar!</button>
@@ -48,10 +61,9 @@
         <hr>
         <div class="hasil">
             <h4>hasil:</h4>
-            <br>
-            <code id="link-baru">
+            <pre id="link-baru">
                 &lt; a &gt;
-            </code>
+            </pre>
         </div>
 
         <script type="text/javascript">
@@ -74,7 +86,7 @@
 
                 linkPdf = document.getElementById('linkPdf').value;
 
-                let newLink = "&lt;a href = " + linkPdf + " target=\"_blank\"&gt;" + textGambar + "&lt;/a&gt;"
+                let newLink = "&lt;a href = " + linkPdf + " target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
 
                 let newLinkHolder = document.getElementById("link-baru");
                 newLinkHolder.innerHTML = newLink;
