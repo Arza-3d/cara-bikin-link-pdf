@@ -62,7 +62,7 @@
         <hr>
         <div class="hasil">
             <h4>hasil:</h4>
-            <pre id="json">
+            <pre id="myJson">
                 &lt; a &gt;
             </pre>
             <button onclick="copyNewLink()">Copy</button>
@@ -95,12 +95,12 @@
 
                 let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
 
-                let newLinkHolder = document.getElementById("json");
+                let newLinkHolder = document.getElementById("myJson");
                 newLinkHolder.innerHTML = newLink;
             }
 
             function copyNewLink() {
-                let copyText = document.getElementById("json");
+                let copyText = document.getElementById("myJson");
                 let newLink = turnBackTag(copyText.innerHTML);
                 navigator.clipboard.writeText(newLink);
             }
