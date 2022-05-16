@@ -54,7 +54,7 @@
             <input type="text" id="mySheet" placeholder="copas tabel sheet">
             <br>
             <br>
-            <input type="text" id="linkPdf" placeholder="default = ' / masukan separator">
+            <input type="text" id="JsonSeparator" placeholder="default = ' / masukan separator">
             <br>
             <br>
             <button type="button" id="tombolBuatJson">Buat Json!</button>
@@ -85,14 +85,14 @@
 
             function buatJson() {
                 let copasSheet,
-                    linkPdf;
+                    JsonSeparator;
 
                 copasSheet = document.getElementById('mySheet').value;
                 copasSheet = changeTag(copasSheet);
 
-                linkPdf = document.getElementById('linkPdf').value;
+                JsonSeparator = document.getElementById('JsonSeparator').value;
 
-                let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
+                let outJson = "&lt;a href = \"" + JsonSeparator + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
 
                 let newLinkHolder = document.getElementById("myJson");
                 newLinkHolder.innerHTML = newLink;
