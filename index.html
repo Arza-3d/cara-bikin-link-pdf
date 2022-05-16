@@ -65,7 +65,7 @@
             <pre id="myJson">
                 &lt; a &gt;
             </pre>
-            <button onclick="copyNewLink()">Copy</button>
+            <button onclick="copyJson()">Copy</button>
         </div>
 
         <script type="text/javascript">
@@ -99,13 +99,13 @@
                 newLinkHolder.innerHTML = newLink;
             }
 
-            function copyNewLink() {
+            function copyJson() {
                 let copyText = document.getElementById("myJson");
                 let newLink = turnBackTag(copyText.innerHTML);
                 navigator.clipboard.writeText(newLink);
             }
 
-            tombolLink.addEventListener("click", BUATLINKB
+            tombolLink.addEventListener("click", BUATLINKB);
         </script>
     </body>
 </html>
