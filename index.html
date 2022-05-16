@@ -94,14 +94,14 @@
 
                 let outJson = "&lt;a href = \"" + JsonSeparator + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
 
-                let newLinkHolder = document.getElementById("myJson");
-                newLinkHolder.innerHTML = newLink;
+                let outJsonHolder = document.getElementById("myJson");
+                outJsonHolder.innerHTML = outJson;
             }
 
             function copyJson() {
                 let copyText = document.getElementById("myJson");
-                let 
-                navigator.clipboard.writeText(newLink);
+                
+                navigator.clipboard.writeText(outJson);
             }
 
             tombolLink.addEventListener("click", buatJson);
