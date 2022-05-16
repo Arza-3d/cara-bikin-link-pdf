@@ -57,7 +57,7 @@
             <input type="text" id="linkPdf" placeholder="default = ' / masukan separator">
             <br>
             <br>
-            <button type="button" id="tombolBuatJson">Buat link dalam gambar!</button>
+            <button type="button" id="tombolBuatJson">Buat Json!</button>
         </form>
         <hr>
         <div class="hasil">
@@ -84,15 +84,15 @@
             }
 
             function buatJson() {
-                let textGambar,
+                let copasSheet,
                     linkPdf;
 
-                textGambar = document.getElementById('mySheet').value;
-                textGambar = changeTag(textGambar);
+                copasSheet = document.getElementById('mySheet').value;
+                copasSheet = changeTag(copasSheet);
 
                 linkPdf = document.getElementById('linkPdf').value;
 
-                let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
+                let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
 
                 let newLinkHolder = document.getElementById("myJson");
                 newLinkHolder.innerHTML = newLink;
