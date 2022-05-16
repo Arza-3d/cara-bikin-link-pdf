@@ -51,10 +51,10 @@
             <legend>Input:</legend>
             <br>
             <br>
-            <input type="text" id="linkGambar" placeholder="copas tabel sheet">
+            <input type="text" id="mySheet" placeholder="copas tabel sheet">
             <br>
             <br>
-            <input type="text" id="linkPdf" placeholder="defaukt ' / masukan separator">
+            <input type="text" id="linkPdf" placeholder="default = ' / masukan separator">
             <br>
             <br>
             <button type="button" id="tombolLinkBaru">Buat link dalam gambar!</button>
@@ -88,7 +88,7 @@
                 let textGambar,
                     linkPdf;
 
-                textGambar = document.getElementById('linkGambar').value;
+                textGambar = document.getElementById('mySheet').value;
                 textGambar = changeTag(textGambar);
 
                 linkPdf = document.getElementById('linkPdf').value;
