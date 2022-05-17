@@ -72,23 +72,23 @@
 
             let tombolLink = document.getElementById('tombolBuatJson');
 
-            function changeTag(myText) {
+            function changeSeparator(myText) {
                 myText = myText.replace(\'/gi, '"');
                 return myText;
             }
 
-            function turnBackTag(myText) {
+            /*function turnBackTag(myText) {
                 myText = myText.replace(/&lt;/gi, ">");
                 myText = myText.replace(/&gt;/gi, "<");
                 return myText;
-            }
+            }*/
 
             function buatJson() {
                 let copasSheet,
                     JsonSeparator;
 
                 copasSheet = document.getElementById('mySheet').value;
-                copasSheet = changeTag(copasSheet);
+                copasSheet = changeSeparator(copasSheet);
 
                 JsonSeparator = document.getElementById('JsonSeparator').value;
 
