@@ -90,12 +90,12 @@
                 copasSheet = document.getElementById('mySheet').value;
                 copasSheet = changeSeparator(copasSheet);
 
-                JsonSeparator = document.getElementById('JsonSeparator').value;
+                //JsonSeparator = document.getElementById('JsonSeparator').value;
 
-                let outJson = "&lt;a href = \"" + JsonSeparator + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
+                //let outJson = "&lt;a href = \"" + JsonSeparator + "\" target=\"_blank\"&gt;\n\t" + copasSheet + "\n&lt;/a&gt;"
 
                 let outJsonHolder = document.getElementById("myJson");
-                outJsonHolder.innerHTML = outJson;
+                outJsonHolder.innerHTML = copasSheet;
             }
 
             function copyJson() {
