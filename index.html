@@ -1,115 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Buat Link PDF</title>
-        <style>
-            form, .hasil {
-                border: black thin solid;
-                border-radius: 4px;
-                padding: 4px;
-                font: 16px;
-            }
+<head>
+  <meta charset="utf-8">
+  <title>Buat Link PDF</title>
+  <style>
+    form, .hasil {
+      border: black thin solid;
+      border-radius: 4px;
+      padding: 4px;
+      font: 16px;
+    }
 
-            input {
-                border: red thin solid;
-                width: 50%;
-                padding: 2px;
-                padding-top: 4px;
-                padding-bottom: 4px;
+    input {
+      border: red thin solid;
+      width: 50%;
+      padding: 2px;
+      padding-top: 4px;
+      padding-bottom: 4px;
 
-            }
+    }
 
-            hr {
-                margin: 10px;
-            }
+    hr {
+      margin: 10px;
+    }
 
-            pre {
-                background-color: #eee;
-                border: thin solid #ccc;
-                border-radius: 3px;
-                color: #060606;
-                font-family: "Roboto Mono",Consolas,monospace !important;
-                font-size: 12px;
-                line-height: normal;
-                max-height: 360px;
-                tab-size: 4;
-                width: auto;
-            }
+    pre {
+      background-color: #eee;
+      border: thin solid #ccc;
+      border-radius: 3px;
+      color: #060606;
+      font-family: "Roboto Mono",Consolas,monospace !important;
+      font-size: 12px;
+      line-height: normal;
+      max-height: 360px;
+      tab-size: 4;
+      width: auto;
+    }
 
-            @media only screen and (max-width: 600px) {
-                body {
-                    /*background-color: lightblue;*/
-                }
-            }
-        </style>
-    </head>
-    <body>
+@media only screen and (max-width: 600px) {
+      body {
+        /*background-color: lightblue;*/
+      }
+    }
+  </style>
+</head>
+<body>
 
-        <form class="" action="index.html" method="post">
-            <legend>Input:</legend>
-            <br>
-            <br>
-            <input type="text" id="linkGambar" placeholder="masukan text gambar di sini, contoh: , ambil link DI POST ALL terus ke POST terus ke TEXT">
-            <a href="https://exsol-innovindo.com/wp-admin/edit.php" target="_blank">post all</a>
-            <br>
-            <br>
-            <input type="text" id="linkPdf" placeholder="masukan Link PDF di sini, ambil link yang telah di uplod DI MEDIA, CONTOH: https://exsol-innovindo.com/wp-content/uploads/2022/04/Brosur-Flint-Exsol.pdf">
-            <a href="https://exsol-innovindo.com/wp-admin/upload.php" target="_blank">media</a>
-            <br>
-            <br>
-            <button type="button" id="tombolLinkBaru">Buat link dalam gambar!</button>
-        </form>
-        <hr>
-        <div class="hasil">
-            <h4>hasil:</h4>
-            <pre id="link-baru">
-                &lt; a &gt;
-            </pre>
-            <button onclick="copyNewLink()">Copy</button>
-        </div>
+  <form class="" action="index.html" method="post">
+    <legend>Input:</legend>
+    <br>
+    <br>
+    <input type="text" id="linkGambar" placeholder="masukan text gambar di sini, contoh: , ambil link DI POST ALL terus ke POST terus ke TEXT">
+    <a href="https://exsol-innovindo.com/wp-admin/edit.php" target="_blank">post all</a>
+    <br>
+    <br>
+    <input type="text" id="linkPdf" placeholder="masukan Link PDF di sini, ambil link yang telah di uplod DI MEDIA, CONTOH: https://exsol-innovindo.com/wp-content/uploads/2022/04/Brosur-Flint-Exsol.pdf">
+    <a href="https://exsol-innovindo.com/wp-admin/upload.php" target="_blank">media</a>
+    <br>
+    <br>
+    <button type="button" id="tombolLinkBaru">Buat link dalam gambar!</button>
+  </form>
+  <hr>
+  <div class="hasil">
+    <h4>hasil:</h4>
+    <pre id="link-baru">
+      &lt; a &gt;
+    </pre>
+    <button onclick="copyNewLink()">Copy</button>
+  </div>
 
-        <script type="text/javascript">
+  <script type="text/javascript">
 
-            let tombolLink = document.getElementById('tombolLinkBaru');
+    let tombolLink = document.getElementById('tombolLinkBaru');
 
-            function changeTag(myText) {
-                myText = myText.replace(/</gi, "&gt;");
-                myText = myText.replace(/>/gi, "&lt;");
+    function changeTag(myText) {
+      myText = myText.replace(/</gi, "&gt;");
+      myText = myText.replace(/>/gi, "&lt;");
 
-                return myText;
-            }
+      return myText;
+    }
 
-            function turnBackTag(myText) {
-                myText = myText.replace(/&lt;/gi, ">");
-                myText = myText.replace(/&gt;/gi, "<");
+    function turnBackTag(myText) {
+      myText = myText.replace(/&lt;/gi, ">");
+      myText = myText.replace(/&gt;/gi, "<");
 
-                return myText;
-            }
+      return myText;
+    }
 
-            function buatLinkBaru() {
-                let textGambar,
-                    linkPdf;
+    function buatLinkBaru() {
+      let textGambar,
+      linkPdf;
 
-                textGambar = document.getElementById('linkGambar').value;
-                textGambar = changeTag(textGambar);
+      textGambar = document.getElementById('linkGambar').value;
+      textGambar = changeTag(textGambar);
 
-                linkPdf = document.getElementById('linkPdf').value;
+      linkPdf = document.getElementById('linkPdf').value;
 
-                let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
+      let newLink = "&lt;a href = \"" + linkPdf + "\" target=\"_blank\"&gt;\n\t" + textGambar + "\n&lt;/a&gt;"
 
-                let newLinkHolder = document.getElementById("link-baru");
-                newLinkHolder.innerHTML = newLink;
-            }
+      let newLinkHolder = document.getElementById("link-baru");
+      newLinkHolder.innerHTML = newLink;
+    }
 
-            function copyNewLink() {
-                let copyText = document.getElementById("link-baru");
-                let newLink = turnBackTag(copyText.innerHTML);
-                navigator.clipboard.writeText(newLink);
-            }
+    function copyNewLink() {
+      let copyText = document.getElementById("link-baru");
+      let newLink = turnBackTag(copyText.innerHTML);
+      navigator.clipboard.writeText(newLink);
+    }
 
-            tombolLink.addEventListener("click", buatLinkBaru);
+    tombolLink.addEventListener("click", buatLinkBaru);
 
-        </script>
-    </body>
+  </script>
+</body>
 </html>
